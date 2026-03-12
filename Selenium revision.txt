@@ -1,0 +1,32 @@
+ancestor:
+Get methods():.....:
+get():
+getWindowHandle():
+getTitle():
+getWindowHandles():
+getPageSource():
+getCurrentUrl():
+
+Conditional Methods()
+isSelected()//Return type is boolean.
+isDisplayed()
+isEnabled()
+Browser Methods():
+close():(closed the driver focused window(if two windows opend at the time first opend window will be get closed():
+quit():(Closed all the windows which are opned by webdriver():
+Navogationa and wait commands():
+
+KSEB till date 
+140+ bug found .
+110 fixed 
+10 postponed 21 open points
+implicity wait:
+explicit wait:
+fluent wait:
+no such element exception:Element is not present on the web page:
+Element not found(locator is incorrect);
+Thread.sleep();
+implicity wait:
+explicit wait:
+fluent wait:
+

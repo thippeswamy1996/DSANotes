@@ -1,0 +1,4 @@
+ String big="Big";
+        String n="Number";
+        Scanner sc = new Scanner(System.in);
+        int a=sc.nextInt();

@@ -1,0 +1,2 @@
+re-tested and reopned -https://reconnectenergy.atlassian.net/browse/KSEB-686.
+

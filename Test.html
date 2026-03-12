@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Document</title>
+</head>
+<body>
+    <input type="text" id="myInput" placeholder="Type something...">
+    <button onclick="myFunction()">Click me</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction() {
+            var input = document.getElementById("myInput").value;
+            document.getElementById("demo").innerHTML = "You entered: " + input;
+        }
+    </script>
+</body>
+</html>

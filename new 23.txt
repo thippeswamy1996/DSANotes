@@ -1,0 +1,13 @@
+28)Java code for possible permutations input : ABC 
+29)Write a program to Print HashMap sorted values 
+30)Concatination program using array list
+31)Merge two Arrays
+32)Find out the common Arrays 
+33)Write a code for custom exceptions
+ex: vote age> 18 ,if less than 18 throw and exception
+34)Write code Using hash to group the names using first char in given list
+35)write code on Bubble sort
+36)string was given and i had perform set operation to store only unqiue character from it and then i had to use map to tell occurance of characters and sort them on basis of highest frequency first
+37)String str=123abc456xyz reverse only strings not numbers
+38)Print unique values from array
+39)print duplicate characters from string 

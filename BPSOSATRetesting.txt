@@ -1,0 +1,11 @@
+1)CSV Template for LF to be provided by BPSO
+Rescheduling applicable after 6 blocks ahead. Rest of the blocks should freeze- Bug
+2)file upload to display all data uploaded- bug
+3)full screen view of graph to enabled while viewing save case- testing under progress
+4)add remarks section in update deadline tab-Fixed(23-07-2025).
+BPSO logo inside LF application- (need to enhance visibality).
+include letter head in download pdf template. also indicate that it is a system generated report- testing under progress
+NA for web application
+Graphs to have download option- testing under progress
+escalation matrix for external user to have purpose, email, phone - testing under progress
+ External Upload Logs

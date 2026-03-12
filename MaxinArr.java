@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class MaxinArr {
+    public static void main(String[] args) {
+        int arr[] = {1,2,3,4,5,6,7,8,9,10};
+        int res = max(arr);
+        System.out.println(res);
+    }
+	static int max(int arr[]){
+		int min=1;
+		int n=arr.length;
+		for(int i=0;i<n;i++){
+			if(arr[i]<min){
+				min=arr[i];
+			}
+		}
+		return min;
+	}
+}

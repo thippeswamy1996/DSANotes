@@ -1,0 +1,3 @@
+1)Update  legal entity page count for no of poc details are not populated.
+2)RM login suyasha ,Apurv Ramesh Mhatre,  Pramod Peter - they should be able to registere and update the parent group ..(update option for all the other rm's).
+3)Super admi doent have optiona to 

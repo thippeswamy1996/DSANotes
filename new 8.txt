@@ -1,0 +1,9 @@
+rows in a table 15 million rows ie min defalut 4 gb storage 
+as user u can increase:
+DDL Create,drop,alter,truncate
+DML-update, delete,insert
+DQL select
+TCL ,grant,revoke,savepoint,purge:
+1)KSEB_FS Bug fixes re-testing,
+2)HVPNL_MDM Test cases report updating.
+3)HVPNL_DF_RE forecasting Testing(Client issue)

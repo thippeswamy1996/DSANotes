@@ -1,0 +1,51 @@
+driver().manage().timeouts().implicitWait(Duration.ofSeconds(10));
+
+single statement /one time use
+it will not wait for maximun time if element is available:
+Applicable for all the elements
+easy to use
+ disadvantage
+ if the time is not sufficient you will get  exception:
+ 1)implicitWait time specification
+ 2)Explicit wait: it will work based on the time and condition also:
+ declare once use it in multiple places:
+ ExplicitWait declaration:
+ 
+ WebdriverWait Mywait = new  WebdriverWait(driver,Duration.ofSeconds(10));
+ WebElement userinput =Mywait.until(ExpectedConditions.visibalityOfElementLocated(By.xpath());
+ //finding elemts are inclusive:(No need to write findelemt method):
+ userinput.senKeys("HI");
+ 
+ 
+ 
+ ///
+ FluentWait():
+  Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+       .withTimeout(Duration.ofSeconds(30L))
+       .pollingEvery(Duration.ofSeconds(5L))
+       .ignoring(NoSuchElementException.class);
+
+   WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+     public WebElement apply(WebDriver driver) {
+       return driver.findElement(By.id("foo"));
+     }
+   });
+ 
+ if i keep multiple wait what will happen?
+ if implicit wait == explicitwait what will happen:
+ if implicit wait >= explicitwait what will happen:
+ if implicit wait >explicitwait what will happen:
+ if implicit wait <= explicitwait what will happen:
+ if implicit wait <explicitwait what will happen:
+ 
+ driver().manage().pageLoadTimeOut(Duration.ofSeconds(10));//this is for the only to check that page loaded completely:
+ 
+ driver().navigate().to()
+ driver().navigate().back() {save the browser history)
+ driver().navigate().forword() {save the browser history)
+ driver().navigate().refresh(){save the browser history)
+ 
+ get and .navigate().to():
+ 
+ 
+ 

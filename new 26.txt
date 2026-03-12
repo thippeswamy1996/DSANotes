@@ -1,0 +1,7 @@
+String s1="java";
+String s2="java";
+String s3 = new String("java");
+Sopln(s1==s2);
+sopl(s1==s3);
+sopln(s1.equals(s3));
+sopln('a'+'b'+'c');

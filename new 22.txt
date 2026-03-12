@@ -1,0 +1,2 @@
+declaration/reqisition submission pages 
+once required input data enters make submit buttton target.

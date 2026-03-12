@@ -1,0 +1,28 @@
+Report(Requirements)
+a) Individual FSP9s power forecasts 
+b) WSP Weather Forecast  
+c) Internal Forecasting tool output (power forecast):(ID/da/wa) 
+
+d) Forecasting tool output 
+e) WSP data availability report. 
+--
+Available report in Software  :
+Treads
+DDR report
+automated report
+weather report:
+
+
+
+
+?????
+NO DATA : No data available for the selected period  
+2. NON-ZERO FLATLINE : Constant non zero value repeating for more than six 
+hours  
+3. DATA GAPS : No data available for more than three hours  
+4. INSUFFICIENT DATA : Data availability less than ûfty percent for the selected 
+period  
+5. ZERO GENERATION : Zero value repeating for the entire selected period  
+SLDC cum REMC Ladakh
+
+6. MULTIPLE ISSUES : More than one of the above issues present

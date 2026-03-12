@@ -1,0 +1,6 @@
+public class ReverseVowels{
+	public static void main(String[] args){
+		String s="Hi Thippesh";
+		String res=reverseVoewls(s);
+		System.out.println(res);
+	}

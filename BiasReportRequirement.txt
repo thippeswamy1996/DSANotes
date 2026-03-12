@@ -1,0 +1,38 @@
+1)A 'Call' button should be displayed only next to the phone number, integrated using the Knowlarity third-party service .(https://reconnectenergy.atlassian.net/browse/BIAS1-88)
+2)Historical schedule capacity -how the pss capacity growen trend.-developement dome (just need to log and closed id),.(https://reconnectenergy.atlassian.net/browse/BIAS1-89)
+3)month statics regarding total installed capacity 
+for a pss- distribution of capacity among different LE
+state->pss->le->contract
+1)No contract has been found for a pss.
+2)contract miss match.
+3)identify RM wise pending contracts and display the stats for all the above points.
+(https://reconnectenergy.atlassian.net/browse/BIAS1-90)
+
+4)schedule capacity discripency report
+i)summary state capacity-
+ii)state wise contract capacity-based on installed, schedule capacity , contract.
+(https://reconnectenergy.atlassian.net/browse/BIAS1-91)
+
+5)Contract mapping
+i)State wise(MW).
+ii)pss wise(MW).
+iii)contract wise total(MW).
+(https://reconnectenergy.atlassian.net/browse/BIAS1-92)
+6)Ideal billing scheudle(fileter month wise)
+i)StateMW/month
+ii)pss(MW)/month 
+iii)LE(MW)/month
+(https://reconnectenergy.atlassian.net/browse/BIAS1-93)
+7)Actual billing scheule..(invoice)(After tally integration.keep on hold until tally integration ...dependecy.
+(https://reconnectenergy.atlassian.net/browse/BIAS1-94)
+8)Action item log report
+i)user having any pending task that has to be consider as a action item for that selected user.
+(https://reconnectenergy.atlassian.net/browse/BIAS1-95)
+5)Revenue projection report (month on month)
+billable,/billing schedule/yearly
+in  millions (Summary).
+Individual(INR).
+Segment wise(renewables,utility) 
+(https://reconnectenergy.atlassian.net/browse/BIAS1-96)
+
+

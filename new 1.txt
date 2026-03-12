@@ -1,0 +1,2 @@
+1)Executing Hitachi_BPSO LF_Functional Testcases_v1.
+2)KSEB_FS bug fixes need to be re-test.

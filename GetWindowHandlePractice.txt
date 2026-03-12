@@ -1,0 +1,26 @@
+import java.util.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+public class MultipleWIndowHandle{
+  public static void main(String[] args){
+  System.setProperty("webdriver.chrome.driver","Path.exe");
+  WebDriver driver = new ChromeDriver();
+  driver.get("www.google.com");
+    String ParentWIndow=driver.getWindowHandle();
+	 driver.findElelment(By.xpath("xpathofWebelement").click();
+	 Set<String> AllWindows= driver.getWindowHandles();
+	 iterator<String> it = AllWindows.iterator();
+	 
+	 while(it.hasNext()){
+	 String windowid=it.next();
+	 if(!windowid=parentWindow){
+	 driver.switchTO().window(windowid);
+	 System.out.println(driver.getTitile());
+	 driver.close();
+	 
+	 }
+	 driver.switchTO().window(parentWindow);
+	 System.out.println(driver.getTitile());
+	 }
+	  }
+}

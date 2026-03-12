@@ -1,0 +1,5 @@
+To handle pagination web table
+Total number of pages
+click on particular pages
+read data from the table:
+ 

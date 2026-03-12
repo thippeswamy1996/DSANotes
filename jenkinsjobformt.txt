@@ -1,0 +1,33 @@
+Example cron formats:
+
+
+H/15 * * * * → Run every 15 minutes
+
+
+H 2 * * * → Run every day at 2 AM
+
+
+H 22 * * 1-5 → Run every weekday at 10 PM
+H 20 * * 1-5//
+Reports-LE -PSS capacity mapping page - report Page 
+data is not matching , in the both the pages .
+RM 10 LE 5-6 pss Sum of capcity is not matchig.
+
+
+
+Verify -pre-condition -steps -test data -expected result actual result -result -post condition.
+
+
+
+
+
+
+H/15 * * * * -> Runs every 15 minute
+H 2 * * *  -> Runs 2AM every day
+H 22 * * 1-5 -> Run every weeekdays at 10PM
+H 20 * * 
+
+H/15 * * * * → Run every 15 minutes
+H 2 * * * → Run every day at 2 AM
+H 22 * * 1-5 → Run every weekday at 10 PM
+H 20 * * 1-5//

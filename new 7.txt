@@ -1,0 +1,18 @@
+1)set doesnt support to get individual id(items)
+hence we need to convert set into list<> ie arrrayList<>:
+hi thippesh lets take example windowhanndles is used to handle multiple window , but even though
+the getwindowhandle giving sinlge window id what is the used of this method in handling multiple window?
+your opened 10 windows opned but u have to close 10th window how do u close?java selenium?
+driver.switchTo().window(windowid).getTitile();{
+ActualTititle=ExpectedTitle then close driver.close();}
+driver.switchTo().window(windowid);
+getCurrentUrl();
+
+driver.switchTo().window(windowid);
+titile.equals();
+aa.equals(bb);
+aa==bb;
+
+isSelected()
+isDisplayed()
+isEnabled()

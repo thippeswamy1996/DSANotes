@@ -1,0 +1,34 @@
+Alert and iFrames
+Alert alert = new Alert();
+driver.switchTo().alert().accept();
+
+String expectedMsg="Hi";
+String ActualMsg =driver.findElement(By.xpath("")).getText();
+Assert.asserEquals(expectedMsg,ActualMsg "Message is matching")
+}
+How to capture text without using switchTo().alert()? 
+ans :using explicit wait;
+
+WebdriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+wait.until(ExpectedCondistions.alertIsPresent());
+//
+Autonticated pop ups();
+frames are sub set of the web page
+iframe one web page inside the another webpage is called i frames:
+driver.switchTo().frame("Locator");
+
+
+ui.vision/demo/webtest/frames
+if your locating element is present inside the frame that time you will get no such element exception that time you need to switch to the frame and 
+
+driver.switchTo().frame(id);
+driver.switchTo().frame(name);
+driver.switchTo().frame(WebElement);
+driver.switchTo().frame(index);
+https://docs.google.com/forms/d/e/1FAIpQLScP-K8zi-9ar0MCq93D3VIFhegSNPveBfdLqiMfTYR9Q1iSKQ/viewform
+//
+page contains forms :
+How to handle inner frame or nested frame?
+ 1)go to frame1 and u can directly frame2 without switching defaultContent.
+ driver.switchTo().defaultContent();
+ 

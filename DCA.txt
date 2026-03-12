@@ -1,0 +1,14 @@
+MASTER DATA map
+MAP USER_id SUBSTATION_ID TAMPLE_NAME 
+SUBMIT DATA_COLLECTION WITH AS PER FORMAT
+Check in db table:
+use SAMAST_DCA;
+Select * from RSM_LINK_USER_TEMPLATE;
+Select * from RSM_LINK_USER_TEMPLATE_SUBSTATION;
+Select * from RSM_TEMPLATE_MASTER;
+Select * from RSM_USER_MASTER;
+Select * from MASTER_AUTOMATIC_LOAD_SHEDDING;
+Select * from DATA_AUTOMATIC_LOAD_SHEDDING;
+Generate report.
+11-06-2025
+Re-test emergency and if same issue report to usha.

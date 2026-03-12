@@ -1,0 +1,8 @@
+Dynamic table with pagination:
+String s="Showing 1 to 10 of 19081 (1 pages)"
+String ss='Showing 1 to 12 of 40 entries"
+
+s.substring(s.indexof("(")+1,s.indexOf("pages")-1
+//div[contains(text(), 'Showing')]
+http://testautomationpractice.blogspot.com
+orange.com(hanlde bootstrap table):

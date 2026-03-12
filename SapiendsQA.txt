@@ -1,0 +1,15 @@
+1)Introduction
+2)What are access specifiers in java?
+3)Difference between public and protected?
+4)What is constructore? different type of constructor?
+6)What is super key word?
+7)explain me oop's concept?
+8)explain me framework?
+9)Explain me annotation of the TestNg?
+10)Write java program i/p "Test Ng is fine"; o/p"fine is Ng Test";
+11)How do u handle multiple test data for the same test?
+12)What is properties file?
+13)how do u read data from the properties fiel?
+14)What is 500 status code?
+15)Explain me how do u work on the git?
+16)what is difference between throw and throws.

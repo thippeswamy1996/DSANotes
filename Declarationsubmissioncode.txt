@@ -1,0 +1,168 @@
+package schedulingtool;
+
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.Duration;
+import java.util.List;
+
+public class DeclarationPage {
+    private WebDriver driver;
+    private WebDriverWait wait;
+
+    @Test
+    public void testScheduling() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        try {
+            // Navigate to login page
+            driver.get("http://172.17.1.84/KL_SCH/index.php/Login/login");
+
+            // Perform login
+            login("Pallavi", "Admin@12344567890-");
+
+            // Navigate to Schedule
+            navigateToSchedule();
+
+            // Select Declaration Web
+            navigateToDeclarationWeb();
+
+            // Get the current system date dynamically
+            String currentDate = getCurrentDate();
+            selectScheduleDate(currentDate);
+
+            // Select Seller (Idukki)
+            selectSellerByVisibleText("Idukki");
+
+            // Wait for the page to load before entering values
+            wait.until(ExpectedConditions.urlContains("DeclarationWeb"));
+
+            // Define values for SellerDC and OnBar (Array 1 to 96)
+            String[] sellerValues = generateValuesArray(1, 96);
+            enterSellerDCAndOnBar(sellerValues);
+
+            // Submit the form
+            submitForm();
+
+            System.out.println("Test executed successfully!");
+
+        } catch (Exception e) {
+            System.err.println("Test execution failed: " + e.getMessage());
+        } finally {
+            if (driver != null) {
+                driver.quit();
+            }
+        }
+    }
+
+    private void login(String username, String password) {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("username"))).sendKeys(username);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("passowrd"))).sendKeys(password); // Fixed typo
+            wait.until(ExpectedConditions.elementToBeClickable(By.id("btn_login"))).click();
+        } catch (Exception e) {
+            System.err.println("Login failed: " + e.getMessage());
+        }
+    }
+
+    private void navigateToSchedule() {
+        try {
+            WebElement scheduleMenu = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//span[@class='nav-label' and text()='Schedule ']")));
+            scheduleMenu.click();
+        } catch (Exception e) {
+            System.err.println("Failed to navigate to Schedule: " + e.getMessage());
+        }
+    }
+
+    private void navigateToDeclarationWeb() {
+        try {
+            WebElement declarationWebLink = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//li[@class='active']//a[@class='label-nav' and text()='Declaration Web']")));
+            declarationWebLink.click();
+        } catch (Exception e) {
+            System.err.println("Failed to navigate to Declaration Web: " + e.getMessage());
+        }
+    }
+
+    private String getCurrentDate() {
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter displayFormatter = DateTimeFormatter.ofPattern("d");
+        return today.format(displayFormatter);
+    }
+
+    private void selectScheduleDate(String day) {
+        try {
+            WebElement dateField = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//div[@class='col-sm-4']//input[@id='sch_date']")));
+            dateField.click();
+
+            // Find and select the correct day dynamically
+            List<WebElement> days = driver.findElements(By.xpath("//span[contains(@class,'flatpickr-day')]"));
+            for (WebElement dayElement : days) {
+                if (dayElement.getText().equals(day) && !dayElement.getAttribute("class").contains("disabled")) {
+                    dayElement.click();
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to select schedule date: " + e.getMessage());
+        }
+    }
+
+    private void selectSellerByVisibleText(String sellerName) {
+        try {
+            WebElement dropdownElement = wait.until(ExpectedConditions.elementToBeClickable(By.id("Se_id")));
+            Select sellerDropdown = new Select(dropdownElement);
+            sellerDropdown.selectByVisibleText(sellerName);
+            System.out.println("Seller '" + sellerName + "' selected successfully.");
+        } catch (Exception e) {
+            System.err.println("Failed to select seller: " + e.getMessage());
+        }
+    }
+
+    private String[] generateValuesArray(int start, int end) {
+        String[] values = new String[end - start + 1];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = String.valueOf(start + i);
+        }
+        return values;
+    }
+
+    private void enterSellerDCAndOnBar(String[] values) {
+        try {
+            for (int i = 0; i < values.length; i++) {
+                WebElement sellerDCInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("6")));
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", sellerDCInput);
+                sellerDCInput.clear();
+                sellerDCInput.sendKeys(values[i]);
+
+                WebElement onBarInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("7")));
+                onBarInput.clear();
+                onBarInput.sendKeys("780");
+            }
+            System.out.println("SellerDC and OnBar values entered successfully.");
+        } catch (Exception e) {
+            System.err.println("Failed to enter SellerDC and OnBar values: " + e.getMessage());
+        }
+    }
+
+    private void submitForm() {
+        try {
+            WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//button[@class='btn btn-primary' and text()='Submit']")));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitButton);
+            System.out.println("Form submitted successfully.");
+        } catch (Exception e) {
+            System.err.println("Form submission failed: " + e.getMessage());
+        }
+    }
+}

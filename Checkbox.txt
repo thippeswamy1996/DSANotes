@@ -1,0 +1,23 @@
+you have 10 check box i want to select last two checkbox:;
+how you can select?
+7-4
+0 1 2 3 4 5 6 7 8 9:
+total number of checkbox-number of last section checkbox=(starting index);
+10-3=7
+now i want to select first three checkbox
+for(int i=0;i<3;i++){
+}
+1)if check boxes are selected want to deselect and 
+if the check boxes not selected select those 
+run two loops also work but it  is not recomended.
+2)if(Check.isSelected){
+check.click();}
+else{
+check.click();}
+select check box based on value:
+
+Assignment:
+Home work:
+1)practice.expandtesting.com/radio-buttons.
+2)practice.expandtesting.com/checkboxs
+3)https://practice.expandtesting.com/checkboxes

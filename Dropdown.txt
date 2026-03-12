@@ -1,0 +1,30 @@
+Select dropdown
+bootstrapdown
+hidden dropdowns
+1)Select dropdown
+i)Dropdown is a one webElement in side this every option is a webelement:
+ dropdownWebelemnt
+Select(it is a class):
+Select selectObject= new Select();
+selectObject.selectByVisibletext("");
+selectObject.selectByValue();
+selectObject.selectByIndex();
+  List<WebElement> options= selectObject.getOptions();
+  getOptions// it will return all the option from the dropdown list : 
+  System.out.println(options.size());// this will give u total number of ptions in a list:
+  for(WebElement option:options){
+  System.out.println(option.getText());
+  }
+  //getOptions(is belong to select clss:
+  
+  or
+   for(int i=0;i<options.size();i++){
+   System.out.println(options.get(i).getText());}
+  
+  url==jquery-az.com/boots/demo.php/?ex=63.0_2
+
+
+
+
+
+

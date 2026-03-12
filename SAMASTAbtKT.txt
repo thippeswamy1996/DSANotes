@@ -1,0 +1,137 @@
+In the **REMC / SAMAST (Scheduling, Accounting, Metering & Settlement Tool)** used in power & renewable energy operations, these terms have **specific operational meanings**. Below is a **clear, structured explanation** 👇
+
+---
+
+## 1️⃣ Declaration
+
+**What it means:**
+
+* A **Declaration** is the **generation availability submitted by the generator** (RE plant, wind, solar, hydro, etc.).
+* It tells the system **how much power the generator can produce** for a given **time block / day**.
+
+**Key points:**
+
+* Submitted **before scheduling**
+* Based on:
+
+  * Weather forecast (wind/solar)
+  * Machine availability
+* Used by SLDC / RLDC for planning
+
+**Example:**
+
+> Solar plant declares **50 MW available** from 10:00–10:15
+
+---
+
+## 2️⃣ Entitlement
+
+**What it means:**
+
+* **Entitlement** is the **approved share of power allocated to a buyer / DISCOM** from the declared generation.
+* Calculated based on:
+
+  * PPAs
+  * Capacity share
+  * SLDC/RLDC allocation rules
+
+**Key points:**
+
+* Derived **after declaration**
+* Shows **who is entitled to how much power**
+* Used for billing & settlement
+
+**Example:**
+
+> From 50 MW declared:
+
+* DISCOM A → 30 MW
+* DISCOM B → 20 MW
+
+---
+
+## 3️⃣ Requisition
+
+**What it means:**
+
+* A **Requisition** is the **power demand requested by the buyer (DISCOM)** against its entitlement.
+* Buyer may:
+
+  * Requisition **full entitlement**
+  * Requisition **partial power**
+  * Requisition **zero power**
+
+**Key points:**
+
+* Raised by **DISCOM**
+* Must be **≤ Entitlement**
+* Helps avoid over-drawal
+
+**Example:**
+
+> DISCOM A entitled to 30 MW but requisitions only **25 MW**
+
+---
+
+## 4️⃣ Schedule
+
+**What it means:**
+
+* **Schedule** is the **final approved power plan** for injection (generator) and drawal (DISCOM).
+* Issued by **SLDC / RLDC** after considering:
+
+  * Declaration
+  * Entitlement
+  * Requisition
+  * Grid constraints
+
+**Key points:**
+
+* **Legally binding**
+* Used for:
+
+  * Real-time operations
+  * DSM / deviation settlement
+* Generated for **15-min / 5-min time blocks**
+
+**Example:**
+
+> Final schedule approved:
+
+* Generator → Inject 45 MW
+* DISCOM A → Draw 25 MW
+* DISCOM B → Draw 20 MW
+
+---
+
+## 🔁 End-to-End Flow (Very Important)
+
+```
+Declaration (Generator)
+        ↓
+Entitlement (System / SLDC)
+        ↓
+Requisition (DISCOM)
+        ↓
+Schedule (SLDC / RLDC Final Approval)
+```
+
+---
+
+## 🧠 Simple One-Line Summary
+
+* **Declaration** → “I can generate this much”
+* **Entitlement** → “You are allowed this much”
+* **Requisition** → “I want this much”
+* **Schedule** → “This is the final approved plan”
+
+---
+
+If you want, I can also explain:
+
+* 🔹 Day-Ahead vs Intraday schedules
+* 🔹 DSM impact when schedule deviates
+* 🔹 How these are validated in **REMC UI & APIs**
+* 🔹 Test scenarios & validations for QA (since you work on REMC)
+
+Just tell me 👍

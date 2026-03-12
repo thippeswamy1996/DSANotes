@@ -1,0 +1,150 @@
+**Salesforce Testing** refers to the process of verifying the functionality, customization, and integrations of the **Salesforce CRM (Customer Relationship Management) platform** to ensure it works as expected.
+
+---
+
+### 🔍 What is Salesforce?
+
+**Salesforce** is a cloud-based CRM platform widely used for managing customer relationships, sales, marketing, and service processes. It allows businesses to customize and extend the platform using built-in tools, Apex (Salesforce’s proprietary language), Visualforce, Lightning components, etc.
+
+---Yes, **there *is*** a core difference between **normal web application testing** and **Salesforce testing**, although they share some general testing principles. Let me break it down clearly:
+
+---
+
+### ✅ **1. Platform & Customization**
+
+| Feature                  | **Normal Web App Testing**                                        | **Salesforce Testing**                                                     |
+| ------------------------ | ----------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Platform**             | Custom-built from scratch using tech stacks like Java, .NET, etc. | Built **on top of Salesforce** (a CRM platform with built-in modules)      |
+| **Customization Level**  | Fully customized front to back                                    | Configuration-driven with some custom code (Apex, Visualforce, LWC)        |
+| **Tester Needs to Know** | App-specific logic, UI, APIs                                      | Salesforce ecosystem (Objects, Fields, Workflows, Apex, SOQL, Flows, etc.) |
+
+---
+
+### ✅ **2. Test Approach**
+
+| Aspect               | **Normal Web App**                          | **Salesforce App**                                                                                           |
+| -------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| **Test Coverage**    | UI, backend, database, APIs, business logic | UI + Salesforce metadata + built-in features like **Validation Rules**, **Approval Processes**, etc.         |
+| **Automation Tools** | Selenium, Cypress, Playwright, etc.         | Selenium + Salesforce-specific locators (Dynamic IDs), or **Provar**, **Testim**, **Copado Robotic Testing** |
+| **Data Testing**     | Mostly RDBMS (MySQL, Oracle)                | **Salesforce objects (SObject)** + SOQL queries                                                              |
+
+---
+
+### ✅ **3. Challenges**
+
+| Challenges             | Web App Testing                      | Salesforce Testing                                                                                                        |
+| ---------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| **Locators**           | Relatively stable DOM                | Salesforce DOM is highly **dynamic**, makes XPath/CSS brittle                                                             |
+| **Environment**        | Fully controlled dev/test/staging    | **Salesforce has sandbox**, but governed by **org limits**, and **governor limits**                                       |
+| **Customization Risk** | You own the code; can test all flows | Some flows are **point-and-click configured**, and may not be testable easily unless tester understands Salesforce deeply |
+
+---
+
+### ✅ **4. Tester Skill Requirements**
+
+| Skill                         | Web App Tester        | Salesforce Tester                                                                          |
+| ----------------------------- | --------------------- | ------------------------------------------------------------------------------------------ |
+| **General Testing Knowledge** | Yes                   | Yes                                                                                        |
+| **Tech Stack Knowledge**      | Yes (Java, SQL, etc.) | Yes + **Salesforce concepts (Objects, Apex, SOQL, etc.)**                                  |
+| **Domain Expertise**          | Nice to have          | **Highly needed** – understanding Salesforce modules like Sales Cloud, Service Cloud, etc. |
+
+---
+
+### 🔁 **Is There an Absolute Difference?**
+
+* ❌ **No** – not *absolute*, because both involve:
+
+  * Functional testing
+  * UI testing
+  * Integration/API testing
+  * Regression, smoke, UAT testing
+
+* ✅ **Yes**, in the sense that:
+
+  * Salesforce imposes its own **architecture, rules, tools, limitations**, and **governance (like limits, workflows, metadata)**.
+  * Testers need **Salesforce-specific knowledge** to be effective.
+
+---
+
+### 🧠 Summary:
+
+| Area           | **Normal Web App Testing** | **Salesforce Testing**                                   |
+| -------------- | -------------------------- | -------------------------------------------------------- |
+| Flexibility    | Customizable everywhere    | Platform-governed                                        |
+| Tooling        | Generic tools              | Needs Salesforce-aware tools                             |
+| Learning Curve | Depends on tech stack      | Requires Salesforce product + dev knowledge              |
+| Test Focus     | Functionality, UI, APIs    | Configuration validation, custom flows, Salesforce rules |
+
+---
+
+If you're already a tester and want to move into **Salesforce testing**, I recommend:
+
+* Learning **Salesforce admin basics** (Objects, Fields, Validation Rules)
+* Learning **SOQL**
+* Practicing automation on **dynamic Salesforce pages**
+
+Let me know if you want a roadmap or resource links for Salesforce testing!
+
+
+### ✅ What is Salesforce Testing?
+
+**Salesforce Testing** is the validation of the configuration, customization, and out-of-the-box features of Salesforce applications. It ensures that:
+
+* The workflows, business logic, and customizations behave correctly.
+* Integrations with other systems (ERP, third-party APIs) work as expected.
+* Data security and user access roles are set correctly.
+* UI (Lightning / Classic) works properly across devices.
+
+---
+
+### 🧪 Types of Salesforce Testing
+
+| Test Type                         | Description                                                        |
+| --------------------------------- | ------------------------------------------------------------------ |
+| **Unit Testing**                  | Done by developers using Apex Test Classes.                        |
+| **Functional Testing**            | Verifies business functionalities and user workflows.              |
+| **Regression Testing**            | Ensures recent changes haven’t broken existing functionality.      |
+| **Integration Testing**           | Validates data flow and functionality with third-party systems.    |
+| **UAT (User Acceptance Testing)** | Done by end-users to validate business requirements.               |
+| **Security Testing**              | Validates user roles, profiles, and data access controls.          |
+| **Load/Performance Testing**      | Ensures app performs under high load (done via tools like JMeter). |
+
+---
+
+### 🛠 Tools Used in Salesforce Testing
+
+* **Manual Testing Tools**: JIRA, TestRail, Excel
+* **Automation Tools**:
+
+  * **Selenium** (for UI testing)
+  * **Provar** (Salesforce-specialized automation tool)
+  * **Testim.io**, **Tosca**, **ACCELQ**
+* **Apex Test Classes**: For unit testing Salesforce custom code
+
+---
+
+### 📌 Key Concepts in Salesforce Testing
+
+* **Custom Objects & Fields**
+* **Validation Rules**
+* **Workflows, Flows, and Process Builders**
+* **Lightning Components vs. Visualforce Pages**
+* **Sandbox vs. Production Testing**
+* **Profiles, Roles, Permission Sets**
+* **Data Migration Testing** using Data Loader / Data Import Wizard
+
+---
+
+### 🔑 Example Salesforce Test Scenario
+
+**Test Case**: Validate Lead to Opportunity conversion
+**Steps**:
+
+1. Login as Sales user
+2. Create a Lead record
+3. Click on "Convert" and map fields to Opportunity
+4. Validate that Opportunity and Contact are created
+
+---
+
+Let me know if you want a real-time Salesforce testing test case, test plan template, or automation script example.

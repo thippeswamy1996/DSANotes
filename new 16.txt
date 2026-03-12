@@ -1,0 +1,144 @@
+package hitachiBpso;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.*;
+import org.testng.annotations.*;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.regex.*;
+import org.apache.commons.io.FileUtils;
+
+public class ProfileCreationTest {
+
+    WebDriver driver;
+    WebDriverWait wait;
+
+    @BeforeClass
+    public void setup() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        driver.manage().window().maximize();
+        driver.get("http://3.217.1.166/bhutan_fs/index.php/C_login");
+
+        // Login
+        driver.findElement(By.id("username")).sendKeys("internal");
+        driver.findElement(By.id("passowrd")).sendKeys("internal#123");
+        driver.findElement(By.id("btn_login")).click();
+
+        wait.until(ExpectedConditions.urlContains("index.php"));
+    }
+
+    @Test
+    public void createMultipleProfiles() throws InterruptedException {
+        int count = 0;
+        int i = 1;
+        while (count < 100) {
+            navigateToForecastPage();
+
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='#profileGenerateForecast' and @role='tab']"))).click();
+
+                WebElement profileByDateRadio = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='profile-toggle' and @value='profile-date-section']")));
+                if (!profileByDateRadio.isSelected()) profileByDateRadio.click();
+
+                WebElement scadaCheckbox = wait.until(ExpectedConditions.elementToBeClickable(By.id("profile-based-sel-scada")));
+                if (!scadaCheckbox.isSelected()) scadaCheckbox.click();
+
+                setDateUsingJS("generation-profile-sel-date", "04/03/2025");
+
+                wait.until(ExpectedConditions.elementToBeClickable(By.id("submit-generation-profile"))).click();
+
+                boolean saved = false;
+                int retry = 0;
+                while (!saved && retry < 3) {
+                    handleUnexpectedPopup();
+                    String profileName = "PPPP" + i + (retry == 0 ? "" : retry);
+                    if (!isValidProfileName(profileName)) {
+                        System.out.println("Retry " + retry + ": Invalid tag - " + profileName);
+                        retry++;
+                        continue;
+                    }
+                    try {
+                        WebElement profileTagInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@name='profile-tag']")));
+                        profileTagInput.clear();
+                        profileTagInput.sendKeys(profileName);
+
+                        WebElement saveBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("save-profile")));
+                        saveBtn.click();
+                        Thread.sleep(1000);
+                        System.out.println("Profile " + i + " saved as: " + profileName);
+                        saved = true;
+                        count++;
+                    } catch (TimeoutException e) {
+                        System.out.println("Retry " + retry + ": Timeout waiting for profile-tag input");
+                        takeScreenshot("profile_tag_timeout_" + i);
+                        retry++;
+                    }
+                }
+                if (!saved) {
+                    System.out.println("Failed to create profile " + i);
+                    takeScreenshot("profile_create_failed_" + i);
+                }
+            } catch (Exception e) {
+                System.out.println("Unexpected error on iteration " + i);
+                takeScreenshot("unexpected_error_" + i);
+            }
+            i++;
+        }
+    }
+
+    public void navigateToForecastPage() {
+        driver.get("http://3.217.1.166/bhutan_fs/index.php/C_butan_generate_forecast/generateForecast");
+    }
+
+    public void setDateUsingJS(String nameAttr, String dateValue) {
+        WebElement dateInput = wait.until(ExpectedConditions.elementToBeClickable(By.name(nameAttr)));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].value='" + dateValue + "';", dateInput);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", dateInput);
+        dateInput.sendKeys(Keys.TAB);
+    }
+
+    public void handleUnexpectedPopup() {
+        try {
+            Alert alert = driver.switchTo().alert();
+            System.out.println("Alert found: " + alert.getText());
+            alert.accept();
+        } catch (NoAlertPresentException e) {
+        }
+
+        try {
+            WebElement modalClose = driver.findElement(By.xpath("//button[contains(text(),'Close') or @class='close']"));
+            if (modalClose.isDisplayed()) {
+                modalClose.click();
+                Thread.sleep(1000);
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public boolean isValidProfileName(String profileName) {
+        return profileName.length() <= 10 && profileName.length() >= 1 && Pattern.matches("[A-Za-z0-9_]+", profileName);
+    }
+
+    public void takeScreenshot(String name) {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File dest = new File("./screenshots/" + name + ".png");
+        try {
+            FileUtils.copyFile(scrFile, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}

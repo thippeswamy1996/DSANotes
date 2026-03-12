@@ -1,0 +1,33 @@
+import java.util.*;
+public class LeftMostRepeatingChar {
+    public static void main(String[] args) {
+        String str = "Thippeswamy";
+        int res = repeatCharAtLeftMost(str);
+      System.out.println(res);
+        // Output: 2
+		if(res!=-1){
+			System.out.println(str.charAt(res));
+		}
+		else{
+			System.out.println("no repeating character found");
+			
+		}
+    }
+
+    public static int repeatCharAtLeftMost(String str) {
+        int[] firstIndex = new int[256];  // ASCII size
+        Arrays.fill(firstIndex, -1);
+        int res = Integer.MAX_VALUE;
+
+        for (int i = 0; i < str.length(); i++) {
+            int ascii = (int) str.charAt(i);
+            if (firstIndex[ascii] == -1) {
+                firstIndex[ascii] = i;
+            } else {
+                res = Math.min(res, firstIndex[ascii]);
+            }
+        }
+
+        return (res == Integer.MAX_VALUE) ? -1 : res;
+    }
+}

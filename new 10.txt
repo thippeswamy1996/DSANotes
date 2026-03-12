@@ -1,0 +1,2 @@
+graph - colors to be matched!
+Integer.parseInt();it will convert to the integer:

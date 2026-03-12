@@ -1,0 +1,12 @@
+25-06-2025:
+
+1)Hitachi_BPSO-SAT_Book_execution in the Production environment.
+1)KSEB_FS_Bug-fixes -re-testing.
+2)RLDC"s Need to update the test case for CMMI-5 audit.
+Note: Check dead-line for all  users how it will works, and change dead line on june 1st:
+
+
+
+
+
+
